@@ -1,7 +1,4 @@
 pipeline {
-    agent {
-        label 'docker'
-    }
     options {
         skipStagesAfterUnstable()
     }
@@ -12,7 +9,7 @@ pipeline {
                 // script {
                 //     app = docker.build('fast-api', '-f .ci/Dockerfile .')
                 // }
-                
+
             }
         }
         
