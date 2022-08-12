@@ -1,15 +1,16 @@
 pipeline {
+    agent {
+        label any
+    }
     options {
         skipStagesAfterUnstable()
     }
     stages {
         stage('Build') {
             steps {
-                echo "hello world"
                 script {
                     app = docker.build('fast-api')
                 }
-
             }
         }
         
