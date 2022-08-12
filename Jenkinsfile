@@ -12,6 +12,7 @@ pipeline {
                 // script {
                 //     app = docker.build('fast-api', '-f .ci/Dockerfile .')
                 // }
+                
             }
         }
         
