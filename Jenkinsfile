@@ -3,8 +3,8 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
-
-    stage('Build') {
+    stages {
+        stage('Build') {
             steps {
                 script {
                     app = docker.build('fast-api:latest')
@@ -14,3 +14,4 @@ pipeline {
         
 
     }
+}
