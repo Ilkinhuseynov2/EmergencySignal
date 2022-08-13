@@ -6,9 +6,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    app = docker.build('fast-api:latest')
-                }
+                echo "hello world"
+                // script {
+                //     app = docker.build('fast-api:latest')
+                // }
             }
         }
         
