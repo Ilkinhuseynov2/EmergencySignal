@@ -7,9 +7,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'docker --version '
-                // script {
-                //     app = docker.build('fast-api:latest')
-                // }
+                script {
+                    app = docker.build('fast-api:latest')
+                }
             }
         }
         
