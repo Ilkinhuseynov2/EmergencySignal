@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "hello world"
+                sh 'docker --version '
                 // script {
                 //     app = docker.build('fast-api:latest')
                 // }
