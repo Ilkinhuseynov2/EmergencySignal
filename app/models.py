@@ -11,17 +11,19 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique= True)
     email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
+    password = Column(String)
     is_admin = Column(Boolean, default=False)
 
-    group = relationship("Group")
+    group = relationship("Group", back_populates="owner")
 
 
 class Group(Base):
     __tablename__ = "group"
 
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, unique= True)
+    name = Column(String, unique= True)
     title = Column(String, index=True)
     description = Column(String, index=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
+    
+    owner = relationship("User", back_populates="group")
