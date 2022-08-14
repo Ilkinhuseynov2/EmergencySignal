@@ -1,9 +1,14 @@
+from email.policy import default
 from enum import unique
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
 from .database import Base
 
+group_users = Table('group_users', Base.metadata,
+    Column('group_id', ForeignKey('group.id'), primary_key=True),
+    Column('users_id', ForeignKey('users.id'), primary_key=True)
+)
 
 class User(Base):
     __tablename__ = "users"
@@ -13,7 +18,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String)
     is_admin = Column(Boolean, default=False)
-
+    phone = Column(String, default = ' ')
     group = relationship("Group", back_populates="owner")
 
 
