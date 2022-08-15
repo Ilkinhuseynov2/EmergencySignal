@@ -19,7 +19,7 @@ def get_db():
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "World."}
 
 
 @app.post("/user")
